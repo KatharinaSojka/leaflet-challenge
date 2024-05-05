@@ -9,7 +9,7 @@ function markerSize(magnitude) {
     return Math.max(1, magnitude * 5); 
   };
 
-
+// Define a marker Color based on earthquate depth
 function markerColor(depth) {
     return depth > 90 ? '#ff3333' : // Deepest earthquakes
            depth > 70 ? '#ff9f33' : // Deep earthquakes
@@ -40,7 +40,7 @@ function createFeatures(earthquakeData) {
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, {
                 radius: markerSize(feature.properties.mag),// Set the radius based on magnitude
-                fillColor: markerColor(feature.geometry.coordinates[2]),
+                fillColor: markerColor(feature.geometry.coordinates[2]), // Set the color based on depth of the earthquate
                 color: "#000",
                 weight: 1,
                 opacity: 1,
@@ -84,7 +84,7 @@ function createMap(earthquakes) {
   L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 
-  // Create a legend, source Leaflet documentation
+  // Create a legend 
 
   let legend = L.control({position: 'bottomright'});
   legend.onAdd = function (map) {
