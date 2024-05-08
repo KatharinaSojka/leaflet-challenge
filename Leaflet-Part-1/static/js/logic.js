@@ -3,10 +3,10 @@
 let queryURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
 
-// Define a markerSize() function that will give each point a different radius based on earthquate magnitude.
+// Define a markerSize() function that will give each point a different radius based on earthquate magnitude. 
 
 function markerSize(magnitude) {
-    return Math.max(1, magnitude * 5); 
+    return Math.max(1, magnitude * 5); // earthquate magnitude scale is small, this method was used to make sizes of marker differ visually
   };
 
 // Define a marker Color based on earthquate depth
@@ -78,10 +78,10 @@ function createMap(earthquakes) {
     layers: [street, earthquakes]
   });
 
-// Create a layer control.
+  // As an option create a layer control.
   // Pass it our baseMaps and overlayMaps.
   // Add the layer control to the map.
-  L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+  // L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 
   // Create a legend 
